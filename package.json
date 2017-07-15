@@ -1,0 +1,14 @@
+{
+  "name": "monux-auth-proxy",
+  "version": "0.0.1",
+  "description": "Authentication Proxy for Monux",
+  "main": "server.js",
+  "repository": "https://github.com/robjtede/monux-auth-proxy",
+  "author": "Rob Ede",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:w": "npx nodemon server.js",
+    "start": "node server.js"
+  }
+}
