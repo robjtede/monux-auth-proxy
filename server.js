@@ -24,9 +24,15 @@ router.get('/auth/', async (ctx, next) => {
       }
     </style>
     
-    <a href="monux://auth/?code=${qs.code}">Click here to log in to Monux &rarr;</a>
+    <p>
+      <a href="monux://auth/?code=${qs.code}">
+        Click here to log in to Monux &rarr;
+      </a>
+    </p>
     
-    This authentication proxy does NOT store or use any of your data.
+    <p>
+      This authentication proxy does NOT store or use any of your data.
+    </p>
   `
   ctx.status = 200
 })
