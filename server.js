@@ -1,15 +1,15 @@
-const { parse } = require('querystring')
+const { parse } = require("querystring");
 
-const Koa = require('koa')
-const Router = require('koa-router')
+const Koa = require("koa");
+const Router = require("koa-router");
 
-const app = new Koa()
-const router = new Router()
+const app = new Koa();
+const router = new Router();
 
-router.get('/auth/', async (ctx, next) => {
-  await next()
+router.get("/auth/", async (ctx, next) => {
+  await next();
 
-  const qs = parse(ctx.req._parsedUrl.query)
+  const { search } = ctx.req._parsedUrl;
 
   ctx.body = `
     <style>
@@ -25,7 +25,7 @@ router.get('/auth/', async (ctx, next) => {
     </style>
     
     <p>
-      <a href="monux://auth/?code=${qs.code}">
+      <a href="monux://auth/${search}">
         Click here to log in to Monux &rarr;
       </a>
     </p>
@@ -33,11 +33,11 @@ router.get('/auth/', async (ctx, next) => {
     <p>
       This authentication proxy does NOT store or use any of your data.
     </p>
-  `
-  ctx.status = 200
-})
+  `;
+  ctx.status = 200;
+});
 
-app.use(router.routes(), router.allowedMethods())
+app.use(router.routes(), router.allowedMethods());
 
-const port = process.env.PORT || 8977
-app.listen(port)
+const port = process.env.PORT || 8977;
+app.listen(port);
