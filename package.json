@@ -12,6 +12,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "html-entities": "^1.2.1",
     "koa": "^2.3.0",
     "koa-router": "^7.2.1"
   }
