@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: monux-auth-proxy
+spec:
+  ports:
+  - port: 80
+    targetPort: 8977
+  selector:
+    app: monux-auth-proxy
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monux-auth-proxy
+spec:
+  selector:
+    matchLabels:
+      app: monux-auth-proxy
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: monux-auth-proxy
+    spec:
+      containers:
+      - name: monux-auth-proxy
+        image: robjtede/monux-auth-proxy
+        ports:
+        - containerPort: 8977

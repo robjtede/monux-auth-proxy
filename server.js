@@ -1,5 +1,3 @@
-const { parse } = require("querystring");
-
 const Entities = require("html-entities").XmlEntities;
 
 const Koa = require("koa");
